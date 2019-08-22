@@ -1,0 +1,20 @@
+PODS:
+  - TorchKit (0.1.0)
+
+DEPENDENCIES:
+  - "TorchKit (from `{:http=>\"https://storage.googleapis.com/torchsdk_artifacts/torchkit/TorchKit_0_1_0.zip\"}`)"
+
+EXTERNAL SOURCES:
+  TorchKit:
+    :http: https://storage.googleapis.com/torchsdk_artifacts/torchkit/TorchKit_0_1_0.zip
+
+CHECKOUT OPTIONS:
+  TorchKit:
+    :http: https://storage.googleapis.com/torchsdk_artifacts/torchkit/TorchKit_0_1_0.zip
+
+SPEC CHECKSUMS:
+  TorchKit: 0edaf92d645c9e78cee7b5f45a3be2ba0211d35d
+
+PODFILE CHECKSUM: 61ddf1a95f22f3499b46b45ee8e21d2ffd5deacc
+
+COCOAPODS: 1.7.5

@@ -1,0 +1,10 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.2'
+
+target 'project-chooser' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for project-chooser
+  pod 'TorchKit', :http => "https://storage.googleapis.com/torchsdk_artifacts/torchkit/TorchKit_0_1_0.zip"
+end

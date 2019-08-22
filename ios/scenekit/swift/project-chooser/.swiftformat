@@ -1,0 +1,12 @@
+--binarygrouping none
+--commas inline
+--decimalgrouping none
+--hexgrouping none
+--indent 2
+--octalgrouping none
+--ranges no-space
+--self insert
+--semicolons never
+--stripunusedargs closure-only
+--wrapcollections before-first
+--enable linebreakAtEndOfFile
