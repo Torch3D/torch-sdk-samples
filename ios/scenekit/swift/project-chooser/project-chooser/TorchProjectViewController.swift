@@ -22,19 +22,53 @@ class TorchProjectViewController: UIViewController, ARSCNViewDelegate, ARSession
   @IBOutlet var sessionInfoLabel: UILabel?
 
   /// Local URL of the project to view.
-  public var projectURL: URL?
+  public var projectURL: URL
 
   // A reference to the TorchProjectNode of the project that is displayed.
-  var torchProject: TorchProjectNode?
+  private var torchProject: TorchProjectNode?
 
   // Last tick
-  var lastTime: TimeInterval = 0.0
+  private var lastTime: TimeInterval = 0.0
 
-  var projectAnchorManager: ProjectAnchorManager?
+  private var projectAnchorManager: ProjectAnchorManager?
 
-  var viewLock: NSLock = NSLock()
-  var viewCenter: CGPoint = CGPoint(x: 0, y: 0)
-  var lastSize: CGSize = CGSize(width: 0, height: 0)
+  private var viewLock: NSLock = NSLock()
+  private var viewCenter: CGPoint = CGPoint(x: 0, y: 0)
+  private var lastSize: CGSize = CGSize(width: 0, height: 0)
+
+  init(projectURL: URL) {
+    self.projectURL = projectURL
+    super.init(coder: TorchProjectViewController.emptyCoder())!
+  }
+
+  required init?(coder: NSCoder) {
+    self.projectURL = URL(string: "")!
+    super.init(coder: coder)
+  }
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    self.sceneView = ARSCNView(frame: self.view.bounds)
+    self.view.addSubview(self.sceneView)
+
+    self.sessionInfoLabel = UILabel(frame: CGRect(x: 0, y: 75, width: self.view.bounds.width * 0.8, height: 100))
+    self.sessionInfoLabel!.numberOfLines = 3
+    self.sessionInfoLabel!.textColor = .white
+    self.sessionInfoLabel!.shadowColor = .black
+    self.sessionInfoLabel!.shadowOffset = CGSize(width: 1.0, height: 1.0)
+    self.view.addSubview(self.sessionInfoLabel!)
+
+    self.sceneView.translatesAutoresizingMaskIntoConstraints = false
+    self.sceneView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+    self.sceneView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+
+    self.sessionInfoLabel!.translatesAutoresizingMaskIntoConstraints = false
+    self.sessionInfoLabel!.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    self.sessionInfoLabel!.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.8).isActive = true
+    self.sessionInfoLabel!.topAnchor.constraint(equalTo: self.sceneView.topAnchor, constant: 75.0).isActive = true
+    self.sessionInfoLabel!.heightAnchor.constraint(equalToConstant: 180.0)
+  }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
@@ -55,13 +89,9 @@ class TorchProjectViewController: UIViewController, ARSCNViewDelegate, ARSession
     // Show debug UI to view performance metrics (e.g. frames per second).
     self.sceneView.showsStatistics = true
 
-    guard let projectURL = self.projectURL else {
-      return // nothing to display
-    }
-
     // Load the Torch Project here!
     do {
-      self.torchProject = try TorchProjectNode(withProjectURL: projectURL, andDevice: self.sceneView.device!, arSession: self.sceneView.session)
+      self.torchProject = try TorchProjectNode(withProjectURL: self.projectURL, andDevice: self.sceneView.device!, arSession: self.sceneView.session)
     } catch {
       fatalError(error.localizedDescription)
     }
@@ -258,5 +288,12 @@ class TorchProjectViewController: UIViewController, ARSCNViewDelegate, ARSession
     let configuration = ARWorldTrackingConfiguration()
     configuration.planeDetection = [.horizontal, .vertical]
     self.sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+  }
+
+  class func emptyCoder() -> NSCoder {
+    let data = NSMutableData()
+    let archiver = NSKeyedArchiver(forWritingWith: data)
+    archiver.finishEncoding()
+    return NSKeyedUnarchiver(forReadingWith: data as Data)
   }
 }

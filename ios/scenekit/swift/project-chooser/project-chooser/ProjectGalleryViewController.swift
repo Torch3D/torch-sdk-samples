@@ -19,9 +19,8 @@ struct ProjectInfo {
 class ProjectGalleryViewController: UICollectionViewController {
   /// Called by ProjectGalleryCell when a project has been selected.
   fileprivate func projectSelected(project: ProjectInfo) {
-    let vc = self.storyboard?.instantiateViewController(withIdentifier: "TorchProjectViewController") as! TorchProjectViewController
+    let vc = TorchProjectViewController(projectURL: Bundle.main.url(forResource: project.torchkitProj, withExtension: "torchkitproj")!)
     vc.navigationItem.title = project.projectName
-    vc.projectURL = Bundle.main.url(forResource: project.torchkitProj, withExtension: "torchkitproj")!
     navigationController?.pushViewController(vc, animated: true)
   }
 
@@ -61,14 +60,6 @@ class ProjectGalleryViewController: UICollectionViewController {
   override func viewWillLayoutSubviews() {
     self.adjustLayout()
   }
-
-//  override func viewDidLayoutSubviews() {
-//    super.viewDidLayoutSubviews()
-//    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
-//
-//      self.adjustLayout()
-//    }
-//  }
 
   private let minItemSpacing: CGFloat = 16
   private let itemWidth: CGFloat = 374

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,52 +20,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Project View-->
-        <scene sceneID="AqY-4K-nJ5">
-            <objects>
-                <viewController storyboardIdentifier="TorchProjectViewController" title="Project View" id="yjC-He-Hb3" customClass="TorchProjectViewController" customModule="torchkit_sample" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OLs-w4-lcP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAi-Rr-HbR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
-                            </arscnView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h09-Cc-yIP">
-                                <rect key="frame" x="20" y="71" width="374" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="1" height="1"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="oAi-Rr-HbR" secondAttribute="trailing" id="4iZ-eQ-v7A"/>
-                            <constraint firstItem="oAi-Rr-HbR" firstAttribute="top" secondItem="JaL-uV-xhn" secondAttribute="top" id="Avu-dY-s6d"/>
-                            <constraint firstItem="oAi-Rr-HbR" firstAttribute="leading" secondItem="OLs-w4-lcP" secondAttribute="leading" id="Kyb-gm-ogY"/>
-                            <constraint firstItem="JaL-uV-xhn" firstAttribute="trailing" secondItem="h09-Cc-yIP" secondAttribute="trailing" constant="20" id="T8b-rU-xQ4"/>
-                            <constraint firstItem="h09-Cc-yIP" firstAttribute="leading" secondItem="JaL-uV-xhn" secondAttribute="leading" constant="20" id="Va3-qJ-2oI"/>
-                            <constraint firstAttribute="bottom" secondItem="oAi-Rr-HbR" secondAttribute="bottom" id="XDM-Db-QXj"/>
-                            <constraint firstItem="h09-Cc-yIP" firstAttribute="top" secondItem="JaL-uV-xhn" secondAttribute="top" constant="71" id="bKg-qE-Ydt"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="JaL-uV-xhn"/>
-                    </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <outlet property="sceneView" destination="oAi-Rr-HbR" id="EqP-Gr-bOp"/>
-                        <outlet property="sessionInfoLabel" destination="h09-Cc-yIP" id="upu-nV-mbm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tjk-z9-bNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1544.9275362318842" y="170.75892857142856"/>
-        </scene>
         <!--Project Gallery-->
         <scene sceneID="hl7-XO-DzK">
             <objects>
-                <collectionViewController title="Project Gallery" id="5aS-4m-n2D" customClass="ProjectGalleryViewController" customModule="torchkit_sample" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Project Gallery" id="5aS-4m-n2D" customClass="ProjectGalleryViewController" customModule="project_chooser" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="aqE-U1-YMO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +35,7 @@
                             <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProjectCell" id="IJE-G8-oXu" customClass="ProjectGalleryCell" customModule="torchkit_sample" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProjectCell" id="IJE-G8-oXu" customClass="ProjectGalleryCell" customModule="project_chooser" customModuleProvider="target">
                                 <rect key="frame" x="20" y="0.0" width="374" height="236"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
