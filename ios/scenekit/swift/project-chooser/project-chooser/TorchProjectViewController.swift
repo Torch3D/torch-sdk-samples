@@ -102,6 +102,11 @@ class TorchProjectViewController: UIViewController, ARSCNViewDelegate, ARSession
         guard let projectVC = self, let torchProj = projectVC.torchProject else { return }
         // Add the gesture recognizers needed for object selection and manipulation
         TorchGestureManager.shared.addGestureRecognizers(to: projectVC.sceneView)
+        // Set the ARSessionDelegate to the torchProj ar session delegate, needed
+        // for image tracking.  If you need to have access to the ARSessionDelegate
+        // information, hook your ARSessionDelegate here and pass calls through to
+        // the torchProj.arSesssionDelegate.
+        projectVC.sceneView.session.delegate = torchProj.arSessionDelegate ?? nil
         // Setup scene lighting
         projectVC.setupSceneLighting()
         // Add the TorchProjectNode to the SceneKit scene

@@ -6,5 +6,5 @@ target 'project-chooser' do
   use_frameworks!
 
   # Pods for project-chooser
-  pod 'TorchKit', :http => "https://artifacts.torch.dev/torchkit/TorchKit_0_2_0.zip"
+  pod 'TorchKit', :http => "https://artifacts.torch.dev/torchkit/TorchKit_0_3_0.zip"
 end
