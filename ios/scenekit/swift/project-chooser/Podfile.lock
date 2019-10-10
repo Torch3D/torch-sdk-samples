@@ -1,20 +1,20 @@
 PODS:
-  - TorchKit (0.3.0)
+  - TorchKit (0.3.1)
 
 DEPENDENCIES:
-  - "TorchKit (from `{:http=>\"https://artifacts.torch.dev/torchkit/TorchKit_0_3_0.zip\"}`)"
+  - "TorchKit (from `{:http=>\"https://artifacts.torch.dev/torchkit/TorchKit_0_3_1.zip\"}`)"
 
 EXTERNAL SOURCES:
   TorchKit:
-    :http: https://artifacts.torch.dev/torchkit/TorchKit_0_3_0.zip
+    :http: https://artifacts.torch.dev/torchkit/TorchKit_0_3_1.zip
 
 CHECKOUT OPTIONS:
   TorchKit:
-    :http: https://artifacts.torch.dev/torchkit/TorchKit_0_3_0.zip
+    :http: https://artifacts.torch.dev/torchkit/TorchKit_0_3_1.zip
 
 SPEC CHECKSUMS:
-  TorchKit: 26a95799c0e5d898593c5562d22e9e635861eba5
+  TorchKit: 1b1165ba9a5d8c919191d429a114457dc20a83f4
 
-PODFILE CHECKSUM: b4baa5e5b58c9739de0ac4ffa3b4e868e77ce78d
+PODFILE CHECKSUM: 6416fc51cd785e3429ee97fdd0d80fdd9fd8ae1c
 
-COCOAPODS: 1.8.0
+COCOAPODS: 1.7.5
