@@ -13,6 +13,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
+  var alertWindow: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     //
@@ -29,12 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func showAlert(title: String, message: String) {
-    let topWindow: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
-    topWindow?.rootViewController = UIViewController()
-    topWindow?.windowLevel = UIWindow.Level.alert + 1
+    self.alertWindow = UIWindow(frame: UIScreen.main.bounds)
+    self.alertWindow?.rootViewController = UIViewController()
+    self.alertWindow?.windowLevel = UIWindow.Level.alert + 1
     let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    topWindow?.makeKeyAndVisible()
-    topWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    self.alertWindow?.makeKeyAndVisible()
+    self.alertWindow?.rootViewController?.present(alert, animated: true, completion: nil)
   }
 
   func applicationWillTerminate(_ application: UIApplication) {
