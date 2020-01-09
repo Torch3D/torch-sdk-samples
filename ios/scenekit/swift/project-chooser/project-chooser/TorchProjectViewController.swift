@@ -91,7 +91,7 @@ class TorchProjectViewController: UIViewController, ARSCNViewDelegate, ARSession
 
     // Load the Torch Project here!
     do {
-      self.torchProject = try TorchProjectNode(withProjectURL: self.projectURL, andDevice: self.sceneView.device!, arSession: self.sceneView.session)
+      self.torchProject = try TorchProjectNode(withProjectURL: self.projectURL, andDevice: self.sceneView.device!, arSession: self.sceneView.session, renderer: self.sceneView)
     } catch {
       fatalError(error.localizedDescription)
     }
